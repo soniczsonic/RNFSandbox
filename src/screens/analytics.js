@@ -13,6 +13,7 @@ export default class App extends Component<Props> {
   componentDidMount() {
     firebase.analytics().setAnalyticsCollectionEnabled(true);
     firebase.analytics().setCurrentScreen('home');
+    // 以下のtestはコンソールで測定できた。
     firebase.analytics().logEvent('test', {test: 'test'});
     firebase.analytics().setUserId('id');
   }
