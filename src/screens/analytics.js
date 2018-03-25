@@ -18,10 +18,14 @@ export default class App extends Component<Props> {
     firebase.analytics().setUserId('id');
   }
 
+  onPress = () => {
+    firebase.analytics().logEvent('pressedHomeButton')
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Button title='home' onPress={firebase.analytics().setUserId('1')} style={styles.welcome} />
+        <Button title='home' onPress={this.onPress()} style={styles.welcome} />
       </View>
     );
   }
