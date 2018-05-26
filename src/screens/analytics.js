@@ -8,20 +8,16 @@ import {
 } from 'react-native';
 import firebase from 'react-native-firebase';
 
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   componentDidMount() {
     firebase.analytics().setAnalyticsCollectionEnabled(true);
     firebase.analytics().setCurrentScreen('home');
-<<<<<<< HEAD
     // 以下のtestはコンソールで測定できた。
-=======
->>>>>>> 2f39a1c... changed
     firebase.analytics().logEvent('test', {test: 'test'});
     firebase.analytics().setUserId('id');
   }
 
-<<<<<<< HEAD
   onPress = () => {
     firebase.analytics().logEvent('pressedHomeButton')
   };
@@ -30,12 +26,6 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Button title='home' onPress={this.onPress()} style={styles.welcome} />
-=======
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button title='home' onPress={firebase.analytics().setUserId('1')} style={styles.welcome} />
->>>>>>> 2f39a1c... changed
       </View>
     );
   }

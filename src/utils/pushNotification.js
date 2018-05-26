@@ -1,5 +1,5 @@
 // @flow
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import firebase from 'react-native-firebase';
 
