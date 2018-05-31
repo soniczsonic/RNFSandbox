@@ -9,21 +9,23 @@ const config = firebase.config();
 
 export default class App extends Component {
   state = {
-    kbyos: "OS!!!"
+    kbyos: "OS!!!",
+    kbyImage: ""
   };
 
   componentDidMount() {
     config.enableDeveloperMode();
     // Set default values
     config.setDefaults({
-      kbyos: "kbyoskby"
+      kbyos: "kbyoskby",
+      kbyImage: ""
     });
 
     this.getRemoteValues();
   }
 
   getRemoteValues = () => {
-    const keys = ["kbyos"];
+    const keys = ["kbyos", "kbyImage"];
     config
       .fetch(0)
       .then(() => config.activateFetched())
@@ -33,9 +35,10 @@ export default class App extends Component {
       })
       .then(datas => {
         const kbyos = datas.kbyos.val();
-
+        const kbyImage = datas.kbyImage.val();
         this.setState({
-          kbyos
+          kbyos,
+          kbyImage
         });
       })
       .catch(error => console.log("err : ", error));
@@ -45,6 +48,19 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>{this.state.kbyos}</Text>
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={{ uri: this.state.kbyImage }}
+          resizeMode={"cover"}
+        />
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={{
+            uri:
+              "https://facebook.github.io/react-native/docs/assets/favicon.png"
+          }}
+          resizeMode={"cover"}
+        />
       </View>
     );
   }
