@@ -8,6 +8,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <FirebaseAnalytics/FIRAnalyticsConfiguration.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

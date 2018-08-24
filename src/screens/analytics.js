@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Button } from "react-native";
-import firebase from "react-native-firebase";
+import Firebase from "react-native-firebase";
+
+const analytics = Firebase.analytics()
 
 export default class App extends Component {
   componentDidMount() {
-    firebase.analytics().setAnalyticsCollectionEnabled(true);
-    firebase.analytics().setCurrentScreen("home");
+    analytics.setAnalyticsCollectionEnabled(true);
+    analytics.setCurrentScreen("home");
     // 以下のtestはコンソールで測定できた。
-    firebase.analytics().logEvent("test", { test: "test" });
-    firebase.analytics().setUserId("id");
+    analytics.logEvent("test", { test: "test" });
+    analytics.setUserId("kby");
+    analytics.setUserProperty("deepuser", "spendonehour")
   }
 
   onPress = () => {
-    firebase.analytics().logEvent("pressedHomeButton");
+    analytics.logEvent("pressedHomeButton");
   };
 
   render() {
